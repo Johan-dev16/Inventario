@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\mantenimiento;
 class MantenimientoController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class MantenimientoController extends Controller
      */
     public function index()
     {
-        return view('mantenimiento.index', compact('mantenimiento'));
+        return view('mantenimiento.form', compact('mantenimiento'));
     }
 
     /**
@@ -43,9 +44,9 @@ class MantenimientoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function detalle($id){
+        $mantenimiento = mantenimiento:: findOrFail($id);
+        return view('mantenimiento.detalle', compact('mantenimiento'));
     }
 
     /**

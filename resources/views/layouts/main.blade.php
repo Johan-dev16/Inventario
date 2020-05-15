@@ -53,7 +53,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route ('mantenimientos')}}">
+                <a class="nav-link" href="{{route ('mantenimiento')}}">
                   <span data-feather="shopping-cart"></span>
                   Mantenimientos
                 </a>

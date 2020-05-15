@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MantenimientoController;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
@@ -18,9 +19,10 @@ Route::group(['middleware' => 'auth'], function()
     
     route::post('/', 'PersonaController@crearPersona')->name('persona.crearPersona');
     route::get('/personas', 'PagesController@persona')->name('personas');
+    route::get('/personas/{id}', 'PersonaController@detalle')->name('persona.detalle');
     
-    route::get('/mantenimientos', 'PagesController@mantenimiento')->name('mantenimientos');
-    
+    route::get('/form', 'MantenimientoController@index')->name('mantenimiento');
+    route::get('/mantenimiento/{id}', 'MantenimientoController@detalle')->name('mantenimiento.detalle')->where('id', '[0-9]+');
 });
 
 
