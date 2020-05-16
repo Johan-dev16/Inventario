@@ -3,83 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App;
 use App\mantenimiento;
 class MantenimientoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+ 
+    public function inicio()
     {
-        return view('mantenimiento.form', compact('mantenimiento'));
+        return view('mantenimiento.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function form(){
+        return view('mantenimiento.form');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function mantenimiento(){
+        return view ('mantenimiento.form');
+    }
+    public function crearMantenimiento(Request $request)
     {
-        //
+        $MantenimientoNuevo = new App\mantenimiento;
+        $MantenimientoNuevo->tipo_mantenimiento = $request->tipo_mantenimiento;
+        $MantenimientoNuevo->fecha_mantenimiento = $request->fecha_mantenimiento;        
+        $MantenimientoNuevo->descripcion = $request->descripcion;
+
+        $request->validate([
+        'tipo_mantenimiento' => 'required'
+        ]);
+        $MantenimientoNuevo->save(); 
+        return redirect('/mantenimiento');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function detalle($id){
         $mantenimiento = mantenimiento:: findOrFail($id);
         return view('mantenimiento.detalle', compact('mantenimiento'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
+

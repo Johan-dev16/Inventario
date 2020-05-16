@@ -13,11 +13,7 @@ class PagesController extends Controller
         return view ('personas');
     }
 
-    public function mantenimiento(){
-        return view ('mantenimiento');
-    }
-
-
+    
     public function update(Request $request)
         {
 

@@ -17,12 +17,20 @@ Route::group(['middleware' => 'auth'], function()
     route::put('/editar/{id}', 'EquiposController@update')->name('equipos.update');    
     
     
+
+
+    route::get('/index', 'MantenimientoController@inicio')->name('mantenimientos');
+    route::post('/form', 'MantenimientoController@crearMantenimiento')->name('mantenimiento.crearMantenimiento');
+    route::get('/mantenimiento', 'MantenimientoController@mantenimiento')->name('mantenimiento');
+    route::get('/mantenimiento/{id}', 'MantenimientoController@detalle')->name('mantenimiento.detalle')->where('id','[0-9]+');    
+
+
+
+
     route::post('/', 'PersonaController@crearPersona')->name('persona.crearPersona');
     route::get('/personas', 'PagesController@persona')->name('personas');
     route::get('/personas/{id}', 'PersonaController@detalle')->name('persona.detalle');
-    
-    route::get('/form', 'MantenimientoController@index')->name('mantenimiento');
-    route::get('/mantenimiento/{id}', 'MantenimientoController@detalle')->name('mantenimiento.detalle')->where('id', '[0-9]+');
+
 });
 
 

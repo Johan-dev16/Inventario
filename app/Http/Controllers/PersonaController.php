@@ -27,11 +27,11 @@ class PersonaController extends Controller
 
     public function detalle($id){
         $persona = persona:: findOrFail($id);
-        return view('persona.detalle', compact('personas'));
+        return view('persona.detalle', compact('persona'));
     }
 
     public function inicio($id){
-        $persona = persona:: findOrFail($id);
+        $persona = persona:: findorFail($id);
         return view('personas');
     }
 
