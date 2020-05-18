@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MantenimientoController;
+use App\mantenimiento;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
@@ -19,10 +20,12 @@ Route::group(['middleware' => 'auth'], function()
     
 
 
-    route::get('/index', 'MantenimientoController@inicio')->name('mantenimientos');
-    route::post('/form', 'MantenimientoController@crearMantenimiento')->name('mantenimiento.crearMantenimiento');
     route::get('/mantenimiento', 'MantenimientoController@mantenimiento')->name('mantenimiento');
-    route::get('/mantenimiento/{id}', 'MantenimientoController@detalle')->name('mantenimiento.detalle')->where('id','[0-9]+');    
+    // route::get('/mantenimiento', 'MantenimientoController@detalle')->name('mantenimiento.detalle')->where('id','[0-9]+');
+    route::get('/mantenimiento/form', 'MantenimientoController@form')->name('mantenimiento.form');
+    route::post('/mantenimiento/crear', 'MantenimientoController@crearMantenimiento')->name('mantenimiento.crearMantenimiento');
+    route::get('/mantenimiento/editar/{id}', 'MantenimientoController@editar')->name('mantenimiento.editar');
+    route::put('/editar/{id}', 'MantenimientoController@update')->name('mantenimiento.update');
 
 
 

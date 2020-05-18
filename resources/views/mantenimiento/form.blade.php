@@ -42,8 +42,8 @@
     </form>
     <div class="row"> 
         <div class="col-sm-11">
-        <button class="btn btn-warning" type="submit">Ver mantenimientos</button>
-        {{-- <a href="{{route('mantenimiento.detalle')}}">Ver mantenimiento</a> --}}
+        {{-- <button class="btn btn-warning" type="submit">Ver mantenimientos</button> --}}
+        <a href="{{route('mantenimiento')}}" class="btn btn-warning">Ver Mantenimientos</a>
         </div>
     </div>
 @endsection

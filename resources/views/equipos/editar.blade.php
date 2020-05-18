@@ -113,27 +113,6 @@
             <button class="btn btn-primary btn-block" type="submit">Editar</button>
         </div>
     </div>
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </form>
 @endsection

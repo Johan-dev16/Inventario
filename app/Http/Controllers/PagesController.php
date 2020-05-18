@@ -12,13 +12,5 @@ class PagesController extends Controller
     public function persona(){
         return view ('personas');
     }
-
-    
-    public function update(Request $request)
-        {
-
-
-        }
-
   
 }
