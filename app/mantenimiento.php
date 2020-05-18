@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class mantenimiento extends Model
 {
     protected $primaryKey = 'id_mantenimiento';
+    
 
     public function mantenimiento()
     {

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title','Editar Mantenimiento Numero: '.$mantenimiento->id_mantenimiento)
 @section('contenido')
-<form action="{{route('mantenimiento.update', $mantenimiento->id)}}" method="POST">
+<form action="{{route('mantenimiento.update', $mantenimiento->id_mantenimiento)}}" method="POST">
 @method('PUT')
 @csrf
 
