@@ -34,23 +34,5 @@
     </div>
 </div>
 </form>
-        </div>
-             <div class="">
-                <h1>Detalles de equipos asignados</h1>
-                        <table class="table">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Equipo Asignado</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                @foreach($errors as $item)  
-                                <td>{{$item->nombre}}</td>
-                                <td>{{$item->equipo_asignado}}</td>
-                              </tr>
-                              @endforeach
-                          </table>
-        </div>
+ 
 @endsection

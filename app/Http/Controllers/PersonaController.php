@@ -6,10 +6,19 @@ use Illuminate\Http\Request;
 use App;
 use App\persona;
 use Illuminate\Routing\Controller;
-use Symfony\Component\CssSelector\Node\FunctionNode;
+
 
 class PersonaController extends Controller
 {
+
+    public function persona(){
+        $persona = persona::Paginate(10);
+        return view ('personas.index', compact('persona'));
+    }
+
+    public function form(){
+        return view ('personas.form');
+    }
 
     public function crearPersona(Request $request)
     {
@@ -35,6 +44,14 @@ class PersonaController extends Controller
         return view('personas');
     }
 
+    public function editar(Request $request, $id){
+        $persona = persona::findOrFail($id);
+        return view('personas.editar', compact('persona'));
+    }
+
+    public function update(){
+        
+    }
 
 
 
