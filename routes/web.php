@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MantenimientoController;
+use App\Http\Controllers\PersonaController;
 use App\mantenimiento;
 use Illuminate\Support\Facades\Route;
 
@@ -30,13 +31,13 @@ Route::group(['middleware' => 'auth'], function()
 
 
 
+    
     route::get('/personas', 'PersonaController@persona')->name('personas');
     route::get('/personas/{id}', 'PersonaController@detalle')->name('persona.detalle');
     route::get('/form', 'PersonaController@form')->name('personas.form');
     route::post('/', 'PersonaController@crearPersona')->name('persona.crearPersona');
-    route::get('/editar/{id}', 'PersonaController@editar')->name('personas.editar');
+    route::get('/personas/editar/{id}', 'PersonaController@editar')->name('personas.editar');
     route::put('/editar/{id}', 'PersonaController@update')->name('persona.update');
-
 
 
     

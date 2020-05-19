@@ -9,7 +9,6 @@ use App\mantenimiento;
 class MantenimientoController extends Controller
 {
  
-
     public function mantenimiento(){
         $mantenimiento = mantenimiento::Paginate(10);
         return view ('mantenimiento.index', compact('mantenimiento'));
@@ -29,6 +28,8 @@ class MantenimientoController extends Controller
         $MantenimientoNuevo->tipo_mantenimiento = $request->tipo_mantenimiento;
         $MantenimientoNuevo->fecha_mantenimiento = $request->fecha_mantenimiento;        
         $MantenimientoNuevo->descripcion = $request->descripcion;
+        
+
 
         $request->validate([
         'tipo_mantenimiento' => 'required'
@@ -48,16 +49,11 @@ class MantenimientoController extends Controller
         $mantenimientoUpdate->fecha_mantenimiento = $request->fecha_mantenimiento;        
         $mantenimientoUpdate->descripcion = $request->descripcion;
 
+
         $mantenimientoUpdate->save();
 
         return redirect('/mantenimiento');
 
-
     }
-
-
-
-
-
 }
 

@@ -9,10 +9,9 @@
     <div class="alert alert-danger">
         Debe ingresar el tipo de mantenimiento
     </div>
-    
-@enderror
-       
+@enderror   
     </div>
+
     <div class="form-group row">
         <label for="tipo_mantenimiento" class="col-sm-2 col-form-label col-form-label-sm">Tipo Mantenimiento</label>
         <div class="col-sm-8">
@@ -34,6 +33,7 @@
         </div>
     </div>
 
+    
     <div class="btn-group sm-2">
         <button class="btn btn-primary" type="submit">Agregar</button>
           </div>
@@ -42,7 +42,6 @@
     </form>
     <div class="row"> 
         <div class="col-sm-11">
-        {{-- <button class="btn btn-warning" type="submit">Ver mantenimientos</button> --}}
         <a href="{{route('mantenimiento')}}" class="btn btn-warning">Ver Mantenimientos</a>
         </div>
     </div>

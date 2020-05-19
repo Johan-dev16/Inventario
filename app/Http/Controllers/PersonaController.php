@@ -59,23 +59,5 @@ class PersonaController extends Controller
        return redirect('/personas');
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+    
+    }
