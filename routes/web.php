@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function()
     route::get('/form', 'PersonaController@form')->name('personas.form');
     route::post('/', 'PersonaController@crearPersona')->name('persona.crearPersona');
     route::get('/editar/{id}', 'PersonaController@editar')->name('personas.editar');
+    route::put('/editar/{id}', 'PersonaController@update')->name('persona.update');
 
 
 

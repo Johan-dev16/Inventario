@@ -28,7 +28,7 @@
       </tr>
     </tbody>
   </table>
-  {{-- {{$persona->links()}} --}}
+  {{$persona->links()}}
 </div>
 @endsection
 

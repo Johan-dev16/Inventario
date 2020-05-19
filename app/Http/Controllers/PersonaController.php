@@ -22,7 +22,7 @@ class PersonaController extends Controller
 
     public function crearPersona(Request $request)
     {
-        $personaNueva = new App\persona;
+        $personaNueva = new persona;
         $personaNueva->nombre = $request->nombre;
         $personaNueva->equipo_asignado = $request->equipo_asignado;
 
@@ -49,8 +49,14 @@ class PersonaController extends Controller
         return view('personas.editar', compact('persona'));
     }
 
-    public function update(){
-        
+    public function update(Request $request, $id){
+        $personaUpdate = persona::findOrFail($id);
+        $personaUpdate->nombre = $request->nombre;
+        $personaUpdate->equipo_asignado = $request->equipo_asignado;
+
+        $personaUpdate->save();
+
+       return redirect('/personas');
     }
 
 
