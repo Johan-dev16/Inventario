@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\equipo;
+use App\Exports\EquiposExports;
+use App\Imports\EquiposImport;
+use Maatwebsite\Excel\Facades\Excel;
+
+
 
 class EquiposController extends Controller
 {
+    private $excel;
+
     public function inicio(){
         
         $equipo = Equipo::paginate(10);
@@ -76,5 +83,29 @@ class EquiposController extends Controller
 
             return redirect('/equipos');
 
+    }
+
+    public function generarReporte(){
+        return Excel::download(new EquiposExports, 'Equipos.xlsx');
+    }
+
+
+    public function __construct(Excel $excel)
+    {
+        $this->excel = $excel;
+    }
+    public function importarReporte()
+    {
+        return $this->excel->import(new EquiposExports, 'Equipos.xlsx');
+    }
+
+    public function import(Request $request){
+        $file = $request->file('file');
+        Excel::import(new EquiposImport, $file);
+        return redirect('/equipos')->with('message', 'Importacion correcta de equipos');
+    }
+
+    public function importview(){
+        return view('equipos/import');
     }
 }

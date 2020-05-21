@@ -38,19 +38,22 @@ class MantenimientoController extends Controller
         return redirect('/mantenimiento');
     }
 
+    
     public function editar($id){
         $mantenimiento = mantenimiento::findorFail($id);
         return view('mantenimiento.editar', compact('mantenimiento'));
     }
+
+
 
     public function update(Request $request, $id){
         $mantenimientoUpdate = mantenimiento::findOrFail($id);
         $mantenimientoUpdate->tipo_mantenimiento = $request->tipo_mantenimiento;
         $mantenimientoUpdate->fecha_mantenimiento = $request->fecha_mantenimiento;        
         $mantenimientoUpdate->descripcion = $request->descripcion;
-
-
         $mantenimientoUpdate->save();
+
+
 
         return redirect('/mantenimiento');
 

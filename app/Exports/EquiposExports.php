@@ -2,16 +2,16 @@
 
 namespace App\Exports;
 
-use App\\user;
+use App\equipo;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class EquipoExports implements FromCollection
+class EquiposExports implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return user::all();
+        return equipo::all();
     }
 }

@@ -11,12 +11,12 @@
     </div>
 </div>
 
+
 <div class="form-group row">
     <label for="equipo_asignado" class="col-sm-2 col-form-label col-form-label-sm">Equipo Asignado</label>
     <div class="col-sm-8">
     <input type="text" class="form-control form-control-sm" name="equipo_asignado" id="equipo_asignado" value="{{$persona->equipo_asignado}}">
     </div>
-
 </div>
 
     <div class="row">

@@ -35,5 +35,5 @@
     <div class="col-sm-2">
         <button class="btn btn-primary btn-block" type="submit">Editar</button>
     </div>
-</form>
+</form>     
 @endsection 
