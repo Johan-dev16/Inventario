@@ -3,34 +3,29 @@
 namespace App\Imports;
 
 use App\Equipo;
-use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class EquiposImport implements ToModel
 {
-    use Importable;
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+    
+
     public function model(array $row)
     {
         return new Equipo([
-            'id'=>$row[0],
-            'nombre_equipo'=>$row[1],
-            'precesador'=>$row[2],
-            'memoria'=>$row[3],
-            'placa'=>$row[4],
-            'disco'=>$row[5],
-            'otros'=>$row[6],
-            'fuente'=>$row[7],
-            'pantalla'=>$row[8],
-            'teclado'=>$row[9],
-            'mouse'=>$row[10],
-            'sistema_operativo'=>$row[11],
-            'office'=>$row[12],
-            'otros_programas'=>$row[13],
+            
+            'nombre_equipo'=>$row[0],
+            'procesador'=>$row[1],
+            'memoria'=>$row[2],
+            'placa'=>$row[3],
+            'disco'=>$row[4],
+            'otros'=>$row[5],
+            'fuente'=>$row[6],
+            'pantalla'=>$row[7],
+            'teclado'=>$row[8],
+            'mouse'=>$row[9],
+            'sistema_operativo'=>$row[10],
+            'office'=>$row[11],
+            'otros_programas'=>$row[12],
         ]);
     }
 }

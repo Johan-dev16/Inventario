@@ -10,7 +10,7 @@
 
 <div class="form-group">
     <div class="row"> 
-        <input type="file"  >
+        <input type="file" name="file" accept=".xlsx">
         <div class="col-sm-2">
             <button type="submit" class="btn btn-success">Enviar informacion</button>
         </div>

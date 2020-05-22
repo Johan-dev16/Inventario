@@ -14,22 +14,25 @@ class EquiposController extends Controller
 {
     private $excel;
 
-    public function inicio(){
-        
+    public function inicio()
+    {    
         $equipo = Equipo::paginate(10);
         return view('equipos.index', compact('equipo'));
     }
 
-    public function form(){
+    public function form()
+    {
         return view('equipos.form');
     }
     
-    public function detalle($id){
+    public function detalle($id)
+    {
         $equipo= Equipo::findorFail($id);
         return view('equipos.detalle', compact('equipo'));
     }
 
-    public function crear(Request $request){
+    public function crear(Request $request)
+    {
        // return $request->all();
 
         $request->validate([
@@ -56,13 +59,16 @@ class EquiposController extends Controller
 
     }
 
-    public function editar($id){
+    public function editar($id)
+    {
         $equipo= Equipo::findorFail($id);
         return view('equipos.editar', compact('equipo'));
 
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
+
             $equipoUpdate = Equipo::findOrFail($id);
             $equipoUpdate->id =$request->id;
             $equipoUpdate->nombre_equipo =$request->nombre_equipo;
@@ -82,30 +88,26 @@ class EquiposController extends Controller
             $equipoUpdate->save();
 
             return redirect('/equipos');
-
     }
 
-    public function generarReporte(){
+    
+    public function importview()
+    {
+        return view('equipos/import');
+    }
+
+    public function generarReporte()
+    {
         return Excel::download(new EquiposExports, 'Equipos.xlsx');
     }
 
 
-    public function __construct(Excel $excel)
+    public function import(Request $request)
     {
-        $this->excel = $excel;
-    }
-    public function importarReporte()
-    {
-        return $this->excel->import(new EquiposExports, 'Equipos.xlsx');
-    }
-
-    public function import(Request $request){
         $file = $request->file('file');
         Excel::import(new EquiposImport, $file);
         return redirect('/equipos')->with('message', 'Importacion correcta de equipos');
     }
 
-    public function importview(){
-        return view('equipos/import');
-    }
+    
 }
