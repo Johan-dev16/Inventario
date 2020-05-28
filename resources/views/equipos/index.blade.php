@@ -3,14 +3,10 @@
 @section('title','Listado de equipos')
 @section('contenido')
 <div class="row">
-<div class="col-sm-2"><a href="{{route('equipos.generarReporte')}}" class="btn btn-success">Generar reporte</a></div>
-</div>
-<div class="col-sm-0">
-  <a href="{{route('equipos.importview')}}" class="btn btn-warning">Subir reporte</a>
-</div>
-<div class="row">
-  <div class="col-sm-10"></div>
-<div class="col-sm-2"><a href="{{route('equipos.form')}}" class="btn btn-primary">Ingresar Nuevo</a></div>
+  <div class="col-sm-12"></div>
+  <div class="col-sm--2"><a href="{{route('equipos.importview')}}" class="btn btn-warning">Subir reporte</a></div>
+  <div class="col-sm--4"><a href="{{route('equipos.generarReporte')}}" class="btn btn-success">Generar reporte</a></div>
+<div class="col-sm-3"><a href="{{route('equipos.form')}}" class="btn btn-primary">Ingresar Nuevo</a></div>
 </div>
 <div class="table-responsive">
       <table class="table">
